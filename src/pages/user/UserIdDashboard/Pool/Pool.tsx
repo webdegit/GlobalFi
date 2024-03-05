@@ -22,9 +22,21 @@ import {
 } from '../../../../hooks/useReferralContract';
 import { weiToDecimals } from '../../../../utils/weiToDecimals';
 import { GiEntryDoor } from 'react-icons/gi';
+
 import { MainHeading } from '../../../../components/Dashboard/MainHeading';
 
-const poolCount = [1, 2, 3, 4, 5, 6, 7];
+const poolNames = [
+  'Superior Club',
+  'Premier Club',
+  'Supreme Club',
+  'Noble Club',
+  'Grand Club',
+  'Elite Club',
+  'Divine Club',
+  'Diamond Club',
+];
+
+const poolCount: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
 
 const PoolDisplayComponent = ({
   userIdAccount,
@@ -47,7 +59,7 @@ const PoolDisplayComponent = ({
       borderRadius="3xl"
       colorScheme="twitter"
     >
-      <VStack p={5} minH={200} minW={200} borderRadius="3xl">
+      <VStack p={5} minH={200} minW={350} borderRadius="3xl">
         <HStack w="full">
           <Text>Status</Text>
           <Spacer />
@@ -86,7 +98,7 @@ const PoolDisplayComponent = ({
           ></Box> */}
         </HStack>
         <HStack w="full">
-          <Heading size="sm">Magic Pool</Heading>
+          <Heading size="sm">{poolNames[poolId - 1]}</Heading>
           <Spacer />
           <Heading size="sm">#{poolId}</Heading>
         </HStack>
@@ -172,7 +184,7 @@ export const Pool = () => {
       ></DashboardDataContainer>
       <Divider />
       <Wrap justify="center">
-        {poolCount?.map((index, key) => {
+        {poolCount?.map((index: number, key: number) => {
           return (
             <PoolDisplayComponent
               poolId={index}
