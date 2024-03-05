@@ -3,7 +3,7 @@ import React from 'react';
 import { supportedNetworkInfo } from '../../../../constants/Config';
 import { useAccount, useChainId } from 'wagmi';
 import { MainHeading } from '../../../../components/Dashboard/MainHeading';
-import { FaArrowRightArrowLeft } from 'react-icons/fa6';
+import { FaArrowRight } from 'react-icons/fa';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 export const Transactions = () => {
@@ -11,25 +11,26 @@ export const Transactions = () => {
   const currentNetwork = supportedNetworkInfo[chainId];
   const { address } = useAccount();
 
+  const bscScanUrl = 'https://testnet.bscscan.com';
+
   console.log(
     'Transactions Page',
-    `${currentNetwork?.chainInfo?.blockExplorers?.default?.url}/address/${address}`
+    `${bscScanUrl}/address/${address}`
   );
   return (
     <VStack spacing={10}>
       <MainHeading
         heading="Transactions"
-        icon={FaArrowRightArrowLeft}
+        icon={FaArrowRight}
       ></MainHeading>
       <Button
         as="a"
-        target="_black"
-        href={`${currentNetwork?.chainInfo?.blockExplorers?.default?.apiUrl}/address/${address}`}
+        target="_blank"
+        href={`${bscScanUrl}/address/${address}`}
         rightIcon={<ExternalLinkIcon />}
         h={14}
       >
-        View transaction on{' '}
-        {currentNetwork?.chainInfo?.blockExplorers?.default?.name}
+        View transaction on BscScan
       </Button>
     </VStack>
   );

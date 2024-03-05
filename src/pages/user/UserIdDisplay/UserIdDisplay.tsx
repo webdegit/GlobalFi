@@ -82,7 +82,7 @@ export const UserIdDisplay = () => {
   const regenratedIds = [1, 2, 3, 4, 5, 7, 9];
 
   return (
-    <VStack py={[10, 20]} spacing={10}>
+    <VStack py={[10, 20]} spacing={10} mb="200px">
       {userAccountHook?.isFetched ? (
         <>
           {userIds?.length > 0 ? (
