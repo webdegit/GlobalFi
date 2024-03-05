@@ -23,7 +23,8 @@ const UserIdCard = ({ userId }: { userId: number }) => {
   return (
     <VStack
       borderRadius="3xl"
-      borderWidth="thin"
+      borderWidth="2px"
+      borderColor="blue.200"
       minW={150}
       minH={200}
       p={2}
